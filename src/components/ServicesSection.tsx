@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Service } from "../types";
 import { uiTranslations } from "../translations";
+import { copyText } from "../services/clipboard";
 
 interface ServicesSectionProps {
   services: Service[];
@@ -70,10 +71,11 @@ export default function ServicesSection({ services, lang }: ServicesSectionProps
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("moustfahhany5@gmail.com");
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
+  const handleCopyEmail = async () => {
+    if (await copyText("moustfahhany5@gmail.com")) {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2500);
+    }
   };
 
   return (
@@ -121,6 +123,11 @@ export default function ServicesSection({ services, lang }: ServicesSectionProps
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredServices.length === 0 && (
+          <p className="col-span-full rounded-sm border border-[#3d4a3d] bg-[#131b13]/80 p-6 text-sm text-[#bccbb9]" role="status">
+            {lang === "en" ? "No services are available in this category yet." : "لا توجد خدمات متاحة في هذا التصنيف حاليًا."}
+          </p>
+        )}
         {filteredServices.map((service, index) => {
           const isExpanded = expandedServiceId === service.id;
 
@@ -266,3 +273,4 @@ export default function ServicesSection({ services, lang }: ServicesSectionProps
     </section>
   );
 }
+
