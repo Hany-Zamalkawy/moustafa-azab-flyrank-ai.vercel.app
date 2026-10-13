@@ -26,3 +26,10 @@ This is an incremental record of the Week 7 visual AI workflow build. It records
 - Final end-to-end sample run through the running Inngest Dev Server returned `202` queued, then `completed` in demo mode. Run ID `20f26825-5546-40a9-9eb9-507664185590` visited `Support request? → YES`, then `Urgent issue? → NO` (two durable steps) and ended with no further connected branch.
 - The OpenAI path requires the user to supply a key and was not called during this build.
 - A continuous, raw screen capture has not been made. Record it locally after the three local processes work; do not describe a capture as attached when it is not.
+
+## 2026-10-13 — documentation and final-package preparation
+
+- Expanded README for the final documentation checkpoint: audience/use case, an API example, architecture diagram, exact observed verification evidence, limitations, and an AI-use disclosure.
+- Added a 3–5 minute live-demo run-of-show that identifies the current demo-mode limitation and leaves the recording action to the author.
+- Added a 601-word retrospective draft and a submission index. The index marks the demo upload, hours log, site/post URL, and human sign-off as incomplete because no evidence for those actions exists in this workspace.
+- No formal v2 evaluation suite was found. Kept the observed smoke run separate from model-quality claims and did not invent a scorecard.
