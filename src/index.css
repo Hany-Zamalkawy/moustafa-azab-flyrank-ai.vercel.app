@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-secondary-container: #474746;
+  --color-primary-fixed: #6bff8f;
+  --color-surface-variant: #2f372e;
+  --color-on-secondary-fixed: #1c1b1b;
+  --color-surface-container-low: #161d16;
+  --color-secondary-fixed-dim: #c8c6c5;
+  --color-inverse-surface: #dce5d9;
+  --color-surface-tint: #4ae176;
+  --color-on-tertiary-container: #76231b;
+  --color-background: #0e150e;
+  --color-surface-container-highest: #2f372e;
+  --color-error-container: #93000a;
+  --color-on-tertiary: #60130d;
+  --color-primary-fixed-dim: #4ae176;
+  --color-surface-container-high: #242c24;
+  --color-tertiary-fixed-dim: #ffb4a9;
+  --color-surface-container: #1a221a;
+  --color-inverse-on-surface: #2a322a;
+  --color-surface-bright: #333b33;
+  --color-tertiary-fixed: #ffdad5;
+  --color-on-surface: #dce5d9;
+  --color-on-secondary-container: #b7b4b4;
+  --color-primary: #4be277;
+  --color-on-error: #690005;
+  --color-surface: #0e150e;
+  --color-inverse-primary: #006e2f;
+  --color-secondary: #c8c6c5;
+  --color-error: #ffb4ab;
+  --color-on-error-container: #ffdad6;
+  --color-tertiary-container: #ff8b7c;
+  --color-on-primary: #003915;
+  --color-outline-variant: #3d4a3d;
+  --color-tertiary: #ffb5ab;
+  --color-surface-dim: #0e150e;
+  --color-primary-container: #22c55e;
+  --color-on-surface-variant: #bccbb9;
+  --color-on-primary-fixed: #002109;
+  --color-on-tertiary-fixed-variant: #7f2a21;
+  --color-on-primary-fixed-variant: #005321;
+  --color-secondary-fixed: #e5e2e1;
+  --color-on-secondary-fixed-variant: #474746;
+  --color-on-background: #dce5d9;
+  --color-on-secondary: #313030;
+  --color-on-tertiary-fixed: #410001;
+  --color-surface-container-lowest: #091009;
+  --color-on-primary-container: #004b1e;
+  --color-outline: #869585;
+
+  /* Sizing tokens used in standard styling */
+  --spacing-section-gap: 128px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-container-max: 1200px;
+  --spacing-unit: 4px;
+
+  /* Set primary font stack mapping */
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Lora", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base resets & scrollbars */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0e150e;
+  color: #dce5d9;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Custom terminal scanlines & dot matrix */
+.dot-grid {
+  background-image: radial-gradient(#3d4a3d 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 99;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(75, 226, 119, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.15;
+  position: fixed;
+  bottom: 100%;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { bottom: 100%; }
+  100% { bottom: -120px; }
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #091009;
+}
+::-webkit-scrollbar-thumb {
+  background: #242c24;
+  border-radius: 4px;
+  border: 2px solid #091009;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4be277;
+}
+
+/* Terminal Glow styles */
+.terminal-glow {
+  box-shadow: 0 0 25px rgba(75, 226, 119, 0.08);
+}
+
+.terminal-glow-hover {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.terminal-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(75, 226, 119, 0.15);
+  border-color: #4be277;
+}
+
+/* Classic Terminal Light/High-Contrast Theme Overrides */
+.light-terminal {
+  --color-background: #fafbf9;
+  --color-surface: #ffffff;
+  --color-on-background: #000000;
+  --color-on-surface: #000000;
+  --color-primary: #0d7a42;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed-dim: #0d7a42;
+  --color-surface-container: #f0f3f0;
+  --color-surface-container-high: #e2e8e2;
+  --color-surface-container-highest: #d4ddd4;
+  --color-surface-container-low: #f5f7f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface-variant: #1a221a;
+  --color-outline-variant: #c3cfc3;
+  --color-outline: #6b7f6e;
+}
+
+.light-terminal body {
+  background-color: #fafbf9 !important;
+  color: #000000 !important;
+}
+
+/* Scrollbar overrides */
+.light-terminal ::-webkit-scrollbar-track {
+  background: #f5f7f5 !important;
+}
+.light-terminal ::-webkit-scrollbar-thumb {
+  background: #c3cfc3 !important;
+  border-color: #f5f7f5 !important;
+}
+.light-terminal ::-webkit-scrollbar-thumb:hover {
+  background: #0d7a42 !important;
+}
+
+/* Dot grid override */
+.light-terminal .dot-grid {
+  background-image: radial-gradient(#c3cfc3 1.5px, transparent 1.5px) !important;
+}
+
+/* Scanline override */
+.light-terminal .scanline {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(13, 122, 66, 0.02) 50%, rgba(255, 255, 255, 0) 100%) !important;
+}
+
+/* Override hardcoded dark hex utilities */
+.light-terminal .bg-\[\#0e150e\] {
+  background-color: #fafbf9 !important;
+}
+.light-terminal .bg-\[\#1a221a\] {
+  background-color: #f0f3f0 !important;
+}
+.light-terminal .bg-\[\#242c24\] {
+  background-color: #e2e8e2 !important;
+}
+.light-terminal .bg-\[\#091009\] {
+  background-color: #f5f7f5 !important;
+}
+.light-terminal .bg-\[\#111911\] {
+  background-color: #e2eae2 !important;
+}
+.light-terminal .bg-\[\#4be277\] {
+  background-color: #0d7a42 !important;
+}
+
+/* Opacity utilities overrides */
+.light-terminal .bg-\[\#091009\]\/30 {
+  background-color: rgba(240, 243, 240, 0.4) !important;
+}
+.light-terminal .bg-\[\#091009\]\/50 {
+  background-color: rgba(240, 243, 240, 0.6) !important;
+}
+.light-terminal .bg-\[\#091009\]\/95 {
+  background-color: rgba(250, 251, 249, 0.95) !important;
+}
+.light-terminal .bg-\[\#1a221a\]\/50 {
+  background-color: rgba(240, 243, 240, 0.5) !important;
+}
+.light-terminal .bg-\[\#1a221a\]\/80 {
+  background-color: rgba(240, 243, 240, 0.8) !important;
+}
+.light-terminal .bg-\[\#0e150e\]\/95 {
+  background-color: rgba(250, 251, 249, 0.95) !important;
+}
+.light-terminal .bg-\[\#4be277\]\/10 {
+  background-color: rgba(13, 122, 66, 0.08) !important;
+}
+.light-terminal .bg-\[\#4be277\]\/20 {
+  background-color: rgba(13, 122, 66, 0.15) !important;
+}
+.light-terminal .bg-black\/80 {
+  background-color: rgba(31, 45, 33, 0.4) !important;
+}
+
+/* Hover and active states for bg */
+.light-terminal .hover\:bg-\[\#1a221a\]:hover {
+  background-color: #f0f3f0 !important;
+}
+.light-terminal .hover\:bg-\[\#1a221a\]\/80:hover {
+  background-color: rgba(240, 243, 240, 0.8) !important;
+}
+.light-terminal .hover\:bg-white:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Text overrides */
+.light-terminal .text-\[\#dce5d9\] {
+  color: #000000 !important;
+}
+.light-terminal .text-\[\#bccbb9\] {
+  color: #000000 !important;
+}
+.light-terminal .text-\[\#4be277\] {
+  color: #0d7a42 !important;
+}
+.light-terminal .text-\[\#6bff8f\] {
+  color: #0c6a2e !important;
+}
+.light-terminal .text-\[\#003915\] {
+  color: #ffffff !important;
+}
+.light-terminal .text-\[\#002109\] {
+  color: #ffffff !important;
+}
+
+/* Opacity text overrides */
+.light-terminal .text-\[\#bccbb9\]\/40 {
+  color: rgba(0, 0, 0, 0.45) !important;
+}
+.light-terminal .text-\[\#bccbb9\]\/60 {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+.light-terminal .text-\[\#bccbb9\]\/70 {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+.light-terminal .text-\[\#bccbb9\]\/80 {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.light-terminal .text-\[\#bccbb9\]\/90 {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+.light-terminal .text-\[\#4be277\]\/80 {
+  color: #0d7a42 !important;
+}
+
+/* Hover text overrides */
+.light-terminal .hover\:text-\[\#4be277\]:hover {
+  color: #0d7a42 !important;
+}
+.light-terminal .hover\:text-\[\#0e150e\]:hover {
+  color: #ffffff !important;
+}
+.light-terminal .hover\:text-white:hover {
+  color: #000000 !important;
+}
+
+/* Border overrides */
+.light-terminal .border-\[\#3d4a3d\] {
+  border-color: #c3cfc3 !important;
+}
+.light-terminal .border-\[\#3d4a3d\]\/20 {
+  border-color: rgba(195, 207, 195, 0.3) !important;
+}
+.light-terminal .border-\[\#3d4a3d\]\/30 {
+  border-color: rgba(195, 207, 195, 0.4) !important;
+}
+.light-terminal .border-\[\#3d4a3d\]\/40 {
+  border-color: rgba(195, 207, 195, 0.5) !important;
+}
+.light-terminal .border-\[\#3d4a3d\]\/60 {
+  border-color: rgba(195, 207, 195, 0.7) !important;
+}
+.light-terminal .border-\[\#3d4a3d\]\/80 {
+  border-color: rgba(195, 207, 195, 0.9) !important;
+}
+.light-terminal .border-\[\#4be277\] {
+  border-color: #0d7a42 !important;
+}
+.light-terminal .border-\[\#4be277\]\/30 {
+  border-color: rgba(13, 122, 66, 0.3) !important;
+}
+
+/* Timeline vertical line stops overrides */
+.light-terminal .from-\[\#4be277\] {
+  --tw-gradient-from: #0d7a42 !important;
+  --tw-gradient-to: rgba(13, 122, 66, 0) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.light-terminal .via-\[\#3d4a3d\] {
+  --tw-gradient-to: rgba(195, 207, 195, 0.2) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #c3cfc3, var(--tw-gradient-to) !important;
+}
+.light-terminal .to-\[\#161d16\] {
+  --tw-gradient-to: #fafbf9 !important;
+}
+
+/* Hover border */
+.light-terminal .hover\:border-\[\#4be277\]:hover {
+  border-color: #0d7a42 !important;
+}
+
+/* Shadows and Glows */
+.light-terminal .shadow-\[\#091009\]\/50 {
+  box-shadow: 0 4px 20px -2px rgba(31, 45, 33, 0.08) !important;
+}
+.light-terminal .shadow-\[\#4be277\]\/10 {
+  box-shadow: 0 4px 20px -2px rgba(13, 122, 66, 0.05) !important;
+}
+.light-terminal .terminal-glow {
+  box-shadow: 0 10px 30px -10px rgba(31, 45, 33, 0.08) !important;
+}
+.light-terminal .terminal-glow-hover:hover {
+  box-shadow: 0 15px 40px -10px rgba(13, 122, 66, 0.12) !important;
+  border-color: #0d7a42 !important;
+}
+
+/* Specific component fixes for light theme readability */
+.light-terminal input, .light-terminal textarea, .light-terminal select {
+  color: #1f2d21 !important;
+  background-color: #ffffff !important;
+  border-color: #c3cfc3 !important;
+}
+.light-terminal .bg-\[\#1a221a\]\/80 {
+  background-color: rgba(240, 243, 240, 0.8) !important;
+}
+.light-terminal .bg-\[\#0e150e\]\/95 {
+  background-color: rgba(250, 251, 249, 0.95) !important;
+}
+
+/* LIGHT THEME OVERRIDES FOR SPECIFIC CARDS (Technical Stack, Education, Certifications, Sandboxed Projects) */
+.light-terminal [id^="skills-category-card-"],
+.light-terminal [id^="education-card-"],
+.light-terminal [id^="cert-card-"],
+.light-terminal [id^="project-card-"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #c3cfc3 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Ensure headings inside these specific cards are deep black for optimal contrast */
+.light-terminal [id^="skills-category-card-"] h3,
+.light-terminal [id^="education-card-"] h3,
+.light-terminal [id^="cert-card-"] h4,
+.light-terminal [id^="project-card-"] h3 {
+  color: #000000 !important;
+}
+
+/* Ensure descriptive/secondary text and tags are dark grey or black for excellent readability */
+.light-terminal [id^="skills-category-card-"] p,
+.light-terminal [id^="education-card-"] p,
+.light-terminal [id^="education-card-"] span,
+.light-terminal [id^="cert-card-"] span,
+.light-terminal [id^="project-card-"] p,
+.light-terminal [id^="project-card-"] span {
+  color: #1f2d21 !important;
+}
+
+/* Override background of internal elements like Category Pill in project card to blend beautifully */
+.light-terminal [id^="project-card-"] .bg-\[\#161d16\] {
+  background-color: #f0f3f0 !important;
+  border-color: #c3cfc3 !important;
+}
+
+/* Override internal action buttons or links inside the cards */
+.light-terminal [id^="project-card-"] .border-\[\#3d4a3d\]\/60 {
+  border-color: #c3cfc3 !important;
+  background-color: #f5f7f5 !important;
+}
+
+/* Ensure unselected tech badges in the projects list are fully readable */
+.light-terminal [id^="project-card-"] .border-\[\#3d4a3d\]\/40 {
+  border-color: #c3cfc3 !important;
+  background-color: #f9faf9 !important;
+  color: #1f2d21 !important;
+}
+
+/* Override opacity background for active active filter chip in skills list to match high contrast light theme */
+.light-terminal .bg-\[\#4be277\]\/25 {
+  background-color: rgba(13, 122, 66, 0.15) !important;
+}
+
+/* Force hero Software Engineer title to be green and bio to be white in light mode */
+.light-terminal #hero-title,
+.light-terminal #hero-title span {
+  color: #0d7a42 !important;
+}
+
+.light-terminal #hero-bio {
+  color: #ffffff !important;
+}
+
+/* Print CSS optimization for perfect downloadable PDF resume generation */
+@media print {
+  /* Hide every element on the website except the resume document */
+  body * {
+    visibility: hidden !important;
+  }
+  
+  #resume-printable-document, #resume-printable-document * {
+    visibility: visible !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Position the printable document flawlessly at the top left of the printing page */
+  #resume-printable-document {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Reset all text colors and backgrounds to standard print colors */
+  #resume-printable-document h1 {
+    color: #111111 !important;
+    font-size: 24pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  #resume-printable-document h2 {
+    color: #333333 !important;
+    border-bottom: 1px solid #cccccc !important;
+    margin-bottom: 6pt !important;
+    font-size: 11pt !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  #resume-printable-document h3 {
+    color: #111111 !important;
+    font-size: 11pt !important;
+  }
+
+  #resume-printable-document p, 
+  #resume-printable-document li, 
+  #resume-printable-document span,
+  #resume-printable-document div {
+    color: #222222 !important;
+    font-size: 9.5pt !important;
+  }
+
+  /* Make sure links are visible and black */
+  #resume-printable-document a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+}
+
