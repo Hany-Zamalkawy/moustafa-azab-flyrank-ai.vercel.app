@@ -49,8 +49,18 @@ export const api = {
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
-      return data;
+      const data: unknown = await res.json();
+      if (!data || typeof data !== "object") {
+        return { success: false, error: "The server returned an invalid response. Please try again." };
+      }
+      const response = data as Partial<ContactResponse>;
+      if (!res.ok || typeof response.success !== "boolean") {
+        return {
+          success: false,
+          error: typeof response.error === "string" ? response.error : "The message could not be submitted. Please try again.",
+        };
+      }
+      return response as ContactResponse;
     } catch (err: any) {
       return {
         success: false,
@@ -59,3 +69,4 @@ export const api = {
     }
   },
 };
+
