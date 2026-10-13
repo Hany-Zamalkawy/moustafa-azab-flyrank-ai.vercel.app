@@ -1,0 +1,38 @@
+{
+  "name": "ai-yes-no-workflow",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts --dev",
+    "dev:web": "vite",
+    "dev:inngest": "npx inngest-cli@latest dev -u http://localhost:3001/api/inngest",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server.ts"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.12.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "inngest": "^4.23.0",
+    "lucide-react": "^1.56.0",
+    "openai": "^7.32.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "shadcn": "^1.0.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}
