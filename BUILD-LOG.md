@@ -38,4 +38,5 @@
 - Confirmed by source search that the rendered portfolio has no contact form and does not call the contact API helper. Empty/garbage form and double-submit tests are therefore not applicable to the current UI; the backend endpoint remains unverified at runtime.
 - Local Vite and TypeScript executables are absent after the earlier incomplete dependency installation. Build, browser/device, link-click, Google search, and PageSpeed checks remain unverified.
 - Added `HARDENING-REVIEW.md` with fixed findings, known limitations, evidence, and review status. A mentor/peer review has not yet occurred; no approval is claimed.
+- Vercel status for the latest hardening code commit `02867674192050d255b1b7432542763bef89e83c` is `failure`. The connected status result does not expose a build log or reason, so the cause is unknown and live checks remain blocked.
 
