@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Award, Check, Copy, Github, Mail, Linkedin, Terminal, ArrowUp, Instagram, Facebook, MessageCircle, Send } from "lucide-react";
 import { uiTranslations } from "../translations";
+import { copyText } from "../services/clipboard";
 
 interface FooterProps {
   lang?: "en" | "ar";
@@ -21,11 +22,11 @@ export default function Footer({ lang = "en" }: FooterProps) {
   })();
   const t = uiTranslations[lang];
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(emailAddress).then(() => {
+  const handleCopyEmail = async () => {
+    if (await copyText(emailAddress)) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    });
+    }
   };
 
   const scrollToTop = () => {
@@ -194,3 +195,4 @@ export default function Footer({ lang = "en" }: FooterProps) {
     </footer>
   );
 }
+
