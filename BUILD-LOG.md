@@ -28,3 +28,14 @@
 - Check the visible footer badge. Replace the generic verifier link with the user's personal credential record if they later provide it.
 - Confirm/assign the production alias in Vercel, then verify the deployed page, social card, favicon, page title, HTTPS certificate, and mobile rendering on that address.
 - Capture a genuine screenshot of the analytics dashboard after it has received traffic; none has been created yet.
+
+## 2026-10-13 — Hardening pass
+
+- Source inspection found three clipboard actions that did not handle denied clipboard permissions consistently. Added a shared Clipboard API/legacy fallback; success feedback now appears only when copying succeeds.
+- Added an accessible empty-state message for service category filters with no matching items.
+- Hardened the unused contact API client to reject HTTP errors and invalid response shapes instead of treating any parsed JSON as success.
+- Tried to check the candidate Vercel host and GitHub from this pass. Outbound network/DNS was unavailable (`No such host is known`), so these live checks could not be repeated.
+- Confirmed by source search that the rendered portfolio has no contact form and does not call the contact API helper. Empty/garbage form and double-submit tests are therefore not applicable to the current UI; the backend endpoint remains unverified at runtime.
+- Local Vite and TypeScript executables are absent after the earlier incomplete dependency installation. Build, browser/device, link-click, Google search, and PageSpeed checks remain unverified.
+- Added `HARDENING-REVIEW.md` with fixed findings, known limitations, evidence, and review status. A mentor/peer review has not yet occurred; no approval is claimed.
+
