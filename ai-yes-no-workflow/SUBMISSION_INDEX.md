@@ -7,7 +7,7 @@ This index collects the available work for review. It distinguishes completed lo
 - **README and setup:** [README.md](README.md)
 - **Build history:** [BUILD_LOG.md](BUILD_LOG.md)
 - **Narrated live demo run-of-show:** [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
-- **Raw 3–5 minute demo video:** Not recorded or uploaded yet. Add the share URL here after recording and posting it to the showcase thread.
+- **3–5 minute narrated demo video:** Not recorded or uploaded yet. After recording, upload it to YouTube as Unlisted, verify the link, then submit the README and video URL through the FlyRank portal and add the URL here.
 - **Evaluation and limitations:** Included in the README. The observed successful run was demo mode; no formal v2 scorecard or live OpenAI result is claimed.
 
 ## Assignment 8.2 — Final package and retrospective (FL-10)
@@ -24,4 +24,3 @@ This index collects the available work for review. It distinguishes completed lo
 ## Reviewer status
 
 The code and written package can be reviewed locally or through the project folder link. This is not a claim that the external showcase post, hours portal, live-site checks, demo video, or human sign-off are complete.
-
