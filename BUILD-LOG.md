@@ -22,8 +22,9 @@
 
 ## Pending before public launch
 
-- The user selected a Vercel free project address. The Vercel app is not connected in this workspace, and the associated GitHub repository is empty, so the site has not been published.
+- The user selected a Vercel free project address. The source is now public in GitHub. GitHub reports Vercel deployment status `success` for commit `42533ecd981ccc196b9a2290bbe7c17887b9804a` (deployment complete).
+- Checked `https://moustafa-azab-flyrank-ai.vercel.app` and the sanitized project-name candidate over HTTPS; both returned 404. The production alias still needs confirmation in Vercel.
 - Enable Web Analytics in the Vercel project dashboard and deploy; confirm a page-view request and dashboard traffic. Do not claim analytics is live until that check is made.
 - Check the visible footer badge. Replace the generic verifier link with the user's personal credential record if they later provide it.
-- Verify the deployed page, social card, favicon, page title, HTTPS certificate, and mobile rendering on the final public address.
+- Confirm/assign the production alias in Vercel, then verify the deployed page, social card, favicon, page title, HTTPS certificate, and mobile rendering on that address.
 - Capture a genuine screenshot of the analytics dashboard after it has received traffic; none has been created yet.
