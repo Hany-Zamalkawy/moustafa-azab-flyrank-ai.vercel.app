@@ -134,6 +134,10 @@ For an end-to-end live run, start all three processes, use a sample message, sho
 
 For the narrated recording, follow [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md). The current local run is demo mode; if you choose to demonstrate the real OpenAI path, configure the key privately and confirm the health endpoint reports `openai` before recording.
 
+## Submit the README and demo
+
+The README and demo script are prepared in this repository. The actual narrated 3–5 minute video has not been recorded or uploaded. To finish the submission, record a continuous run with OBS Studio, Loom, or another screen recorder; upload it to YouTube as **Unlisted**; verify the link opens in a private browser window; then submit this README and the video URL together through the assignment portal. The video must show the running application, a complete request-to-result run, one design decision, and one limitation. Do not use slides or claim the demo-mode run as an OpenAI result.
+
 ## Final package
 
 See [`SUBMISSION_INDEX.md`](SUBMISSION_INDEX.md) for the capstone package index, checkpoint status, retrospective, and recording link status. [`RETROSPECTIVE.md`](RETROSPECTIVE.md) is a first-person draft for the author to review and personalize before submission.
