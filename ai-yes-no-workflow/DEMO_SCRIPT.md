@@ -20,6 +20,6 @@ This is a run-of-show, not a recording. Record the running application continuou
 | 3:05–3:45 | Point out limitation in README or UI | “One limitation is that this MVP keeps run status in API process memory. Restarting the API loses status records, so I would add a database before deploying this for real users. Also, today’s run is demo mode; the OpenAI path still needs a configured key and its quality has not been evaluated.” |
 | 3:45–4:10 | Show final completed state, then finish | Summarize what worked end to end and stop the recording only after the final status is visible. Keep the raw capture unedited. |
 
-## After recording
+## Upload and submit
 
-Watch enough of the raw file to confirm audio, the complete request-to-result loop, and the disclosed limitation. Upload the original file to the showcase thread and add its share URL to `SUBMISSION_INDEX.md`. No video link is recorded in this repository yet.
+Watch the video to confirm clear narration, the complete request-to-result loop, one design decision, and the disclosed limitation. Upload it to YouTube with visibility set to **Unlisted**. Open the share URL in a private browser window to confirm that a reviewer can watch it without editing access. Then submit the README and video URL together in the FlyRank assignment portal and add the URL to `SUBMISSION_INDEX.md`. No video link is recorded in this repository yet.
