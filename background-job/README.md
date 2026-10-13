@@ -14,7 +14,7 @@ Python 3.10+ is required. Open two PowerShell windows in this folder.
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-$env:INNGEST_SIGNING_KEY = "local-signing-key"
+$env:INNGEST_SIGNING_KEY = "0123456789abcdef0123456789abcdef"
 $env:INNGEST_DEV = "1"
 uvicorn background_jobs:app --reload --port 8000
 ```
@@ -34,7 +34,7 @@ Or use `LLM_PROVIDER="groq"` and `GROQ_API_KEY`. The existing A6 classifier enfo
 npx inngest-cli@latest dev -u http://127.0.0.1:8000/api/inngest
 ```
 
-Open `http://localhost:8288` to see functions and job runs. This project has not included a dashboard screenshot or claimed a live Dev Server run in this submission. Capture those from the actual local run after starting both windows.
+Open `http://localhost:8288` to see functions and job runs. The real local successful and failure runs are recorded in [LIVE_RUN_PROOF.md](LIVE_RUN_PROOF.md). A dashboard screenshot and raw video have not been attached; capture them from a fresh run before uploading the final submission.
 
 ## API and background functions
 
@@ -71,7 +71,7 @@ The initial response is expected to contain `status: pending`; repeat the poll u
 
 ```powershell
 python -m pip install -r requirements.txt
-$env:INNGEST_SIGNING_KEY = "test-signing-key"
+$env:INNGEST_SIGNING_KEY = "0123456789abcdef0123456789abcdef"
 python -m unittest -v test_app
 ```
 

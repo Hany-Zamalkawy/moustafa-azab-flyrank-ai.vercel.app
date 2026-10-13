@@ -5,6 +5,7 @@ import asyncio
 import json
 import logging
 import os
+from datetime import timedelta
 from typing import Any
 from urllib.request import Request, urlopen
 
@@ -82,7 +83,7 @@ async def make_report_handler(ctx: inngest.Context) -> dict[str, Any]:
     if existing["status"] == "failed":
         return {"status": "failed", "report_id": report_id}
 
-    await ctx.step.sleep("do-the-slow-work", "8s")
+    await ctx.step.sleep("do-the-slow-work", timedelta(seconds=8))
 
     async def mark_running() -> dict[str, Any]:
         return update_report(report_id, status="running")
@@ -137,7 +138,7 @@ async def report_failure_handler(ctx: inngest.Context) -> None:
 
 
 async def hello_handler(ctx: inngest.Context) -> str:
-    await ctx.step.sleep("hello-five-seconds", "5s")
+    await ctx.step.sleep("hello-five-seconds", timedelta(seconds=5))
     return "Hello from the background!"
 
 

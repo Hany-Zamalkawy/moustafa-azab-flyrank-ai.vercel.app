@@ -4,6 +4,7 @@ from __future__ import annotations
 import asyncio
 import json
 import unittest
+from datetime import timedelta
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, patch
 
@@ -94,7 +95,7 @@ class BackgroundJobTests(unittest.TestCase):
             step = FakeStep()
             ctx = SimpleNamespace(event=SimpleNamespace(data={"report_id": report["id"], "topic": "replace ID"}), step=step)
             result = asyncio.run(jobs.make_report_handler(ctx))
-        self.assertEqual(step.sleeps, [("do-the-slow-work", "8s")])
+        self.assertEqual(step.sleeps, [("do-the-slow-work", timedelta(seconds=8))])
         self.assertEqual(step.runs, ["mark-report-running", "build-report"])
         self.assertEqual(result["mode"], "demo")
         self.assertEqual(self.client.get(f"/reports/{report['id']}").json()["status"], "done")
