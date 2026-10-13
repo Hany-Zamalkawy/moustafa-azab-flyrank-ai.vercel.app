@@ -13,7 +13,7 @@ This index collects the available work for review. It distinguishes completed lo
 ## Assignment 8.2 — Final package and retrospective (FL-10)
 
 - **Final project:** [Branchline workflow project](https://github.com/Hany-Zamalkawy/moustafa-azab-flyrank-ai.vercel.app/tree/main/ai-yes-no-workflow)
-- **Build report:** [PDF report](Branchline_AI_Workflow_Build_Report.pdf)
+- **Build report:** `Branchline_AI_Workflow_Build_Report.pdf` is included in the local project ZIP; it has not been uploaded to the GitHub folder.
 - **Retrospective draft:** [RETROSPECTIVE.md](RETROSPECTIVE.md) (review and personalize before submission; 500–800 word target).
 - **Portfolio source and hardening notes:** [Portfolio project repository folder](https://github.com/Hany-Zamalkawy/moustafa-azab-flyrank-ai.vercel.app/tree/main)
 - **Other work in the local project workspace:** El-Mizan agent (`../el-mizan-mvp/`), LLM/background-job API (`../intent-api/`), and PDF report generator (`../report-generator/`). These folders are not copied into this project folder, so include or link them in the final public package if the reviewer needs the full track history.
@@ -24,3 +24,4 @@ This index collects the available work for review. It distinguishes completed lo
 ## Reviewer status
 
 The code and written package can be reviewed locally or through the project folder link. This is not a claim that the external showcase post, hours portal, live-site checks, demo video, or human sign-off are complete.
+
